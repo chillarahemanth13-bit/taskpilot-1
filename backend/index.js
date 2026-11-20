@@ -6,6 +6,9 @@ import authRoutes from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
 
+import userRoutes from "./routes/user.route.js"
+
+
 dotenv.config();
 
 mongoose
@@ -39,6 +42,10 @@ app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 // Routes
 app.use("/api/auth", authRoutes);
+
+
+app.use("/api/users", userRoutes);
+
 
 // Centralized error handling middleware
 app.use((err, req, res, next) => {
