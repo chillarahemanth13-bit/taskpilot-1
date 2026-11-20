@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 dotenv.config();
 
@@ -31,7 +32,10 @@ app.use(
 // Middleware to handle JSON object
 app.use(express.json());
 
-app.use(cookieParser())
+app.use(cookieParser());
+
+// Serve uploaded files statically
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 // Routes
 app.use("/api/auth", authRoutes);

@@ -32,6 +32,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
 # Editor & OS files
 .vscode/*
 !.vscode/extensions.json
