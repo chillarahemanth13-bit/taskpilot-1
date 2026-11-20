@@ -7,6 +7,8 @@ import cookieParser from "cookie-parser";
 import path from "path";
 
 import userRoutes from "./routes/user.route.js"
+import taskRoutes from "./routes/task.route.js"
+
 
 
 dotenv.config();
@@ -45,6 +47,8 @@ app.use("/api/auth", authRoutes);
 
 
 app.use("/api/users", userRoutes);
+app.use("/api/tasks", taskRoutes);
+
 
 
 // Centralized error handling middleware
