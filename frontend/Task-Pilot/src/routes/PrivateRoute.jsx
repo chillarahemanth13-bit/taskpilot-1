@@ -1,10 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
 const PrivateRoute = ({ allowedRoles = [] }) => {
-  // Placeholder: When auth state is added, check if user.role is in allowedRoles
-  const hasAccess = Boolean(allowedRoles);
+  const { currentUser } = useSelector((state) => state.user);
 
-  return hasAccess ? <Outlet /> : <Outlet />;
+  if (!currentUser) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const hasAccess =
+    allowedRoles.length === 0 || allowedRoles.includes(currentUser.role);
+
+  return hasAccess ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default PrivateRoute;

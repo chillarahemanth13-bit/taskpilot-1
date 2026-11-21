@@ -79,7 +79,7 @@ const SignUp = () => {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
           {/* Gradient top border */}
-          <div className="h-2 bg-gradient-to-r from-blue-600 to-blue-400"></div>
+          <div className="h-2 bg-linear-to-r from-blue-600 to-blue-400"></div>
 
           <div className="p-8">
             {/* Logo and title */}
