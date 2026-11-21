@@ -1,5 +1,5 @@
 import express from "express";
-import { signin, signup, updateUserProfile, uploadImage, userProfile } from "../controller/auth.controller.js";
+import { signin, signout, signup, updateUserProfile, uploadImage, userProfile } from "../controller/auth.controller.js";
 import { verifyToken } from "../utils/verifyUser.js";
 import upload from "../utils/multer.js";
 
@@ -7,6 +7,7 @@ const router = express.Router()
 
 router.post("/sign-up", signup)
 router.post("/sign-in", signin)
+router.post("/sign-out", signout)
 
 router.get("/user-profile", verifyToken, userProfile)
 
